@@ -18,8 +18,7 @@ export const Test2 = () => {
         <li>Loop over the array to create the routes</li>
         <li>Create a reusable component for nav links</li>
         <li>
-          Increase the font weight property for the link matching the current
-          route so it's easy to see what page you're on
+          Within the navbar, indicate to the user what page they're currently on
         </li>
         <li>Add a new page to the app with the text "hello world"</li>
       </ul>
