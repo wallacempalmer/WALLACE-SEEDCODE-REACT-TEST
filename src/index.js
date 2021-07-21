@@ -16,19 +16,19 @@ ReactDOM.render(
 const people = [
   {
     name: "Brian Dodd",
-    attending: true,
+    id: 0
   },
   {
     name: "Amin Shariat",
-    attending: true,
+    id: 1
   },
   {
     name: "Sandra Johnson",
-    attending: true,
+    id: 2
   },
   {
     name: "Alice Chu",
-    attending: true,
+    id: 3
   },
 ];
 
