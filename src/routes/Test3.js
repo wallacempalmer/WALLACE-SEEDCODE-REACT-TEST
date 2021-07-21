@@ -35,7 +35,7 @@ export const Test3 = () => {
       <h4>Style a list of comments</h4>
       <p>
         This list of comments isn't ready for production, since it's completely
-        unstyled.
+        unstyled. Make the following changes without modifying the data or the Test3 component.
       </p>
       <ul>
         <li>
