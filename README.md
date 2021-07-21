@@ -1,3 +1,7 @@
+# SeedCode React Tests
+
+Pull down this repository, and see instructions below for working with Create React App. Complete the tests and commit the changes to a new branch with your first name.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
