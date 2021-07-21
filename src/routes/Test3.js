@@ -1,13 +1,5 @@
-interface Comment {
-  text: string;
-  author: string;
-  timestamp: string;
-  id: string;
-  avatarColor: string;
-}
-
 export const Test3 = () => {
-  const comments: Comment[] = [
+  const comments = [
     {
       text: "Sure Brian, what's the issue?",
       timestamp: "2021-07-21T01:26:03+0000",
@@ -20,7 +12,7 @@ export const Test3 = () => {
       timestamp: "2021-07-21T02:43:25+0000",
       author: "Brian Dodd",
       id: "f7d247dd-e227-4fa3-988c-e953138ca6a5",
-      avatarColor: "#e53935",
+      avatarColor: "#43a047",
     },
     {
       text: "I'm having trouble with my computer, can anyone help me with it?",
@@ -42,7 +34,7 @@ export const Test3 = () => {
     <div>
       <h4>Style a list of comments</h4>
       <p>
-        This list of comments isn't ready for production, since its completely
+        This list of comments isn't ready for production, since it's completely
         unstyled.
       </p>
       <ul>
@@ -74,32 +66,23 @@ export const Test3 = () => {
   );
 };
 
-interface CommentListProps {
-  comments: Comment[];
-}
 
-const CommentList = (props: CommentListProps) => {
+const CommentList = (props) => {
   return (
     <div>
-      {[...props.comments]
-        .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-        .map((c) => (
-          <Comment key={c.id} text={c.text} author={c.author} />
-        ))}
+      {props.comments.map((c) => (
+        <Comment key={c.id} text={c.text} author={c.author} />
+      ))}
     </div>
   );
 };
 
-interface CommentProps {
-  author: string;
-  text: string;
-}
-
-const Comment = (props: CommentProps) => {
+const Comment = (props) => {
   return (
     <div>
       <div>{props.author}</div>
       <div>{props.text}</div>
+      <div>{props.timetamp}</div>
     </div>
   );
 };

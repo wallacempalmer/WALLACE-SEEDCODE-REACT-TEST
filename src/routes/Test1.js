@@ -1,25 +1,12 @@
-import { useEffect, useState } from "react";
-
 export const Test1 = () => {
-  const fetchPeople = async () => {
-    // fetch people from 'http://seedcode.com/getPeople'
-    const people = await fetch("http://test.seedcode.com/getPeople").then(
-      (res) => res.json()
-    );
-  };
-
-  useEffect(() => {
-    fetchPeople();
-  });
-
   return (
     <div>
       <h4>Create a simple event planner</h4>
       <p>
         On page load, fetch the list of invitable people from
-        http://test.seedcode.com/getPeople using the javascript Fetch API. Once
-        the event is ready, POST the new event's data to
-        http://test.seedcode.com/createEvent.
+        http://test.seedcode.com/getPeople using the javascript Fetch API.
+        Create the event planner inside this page. Once the event is ready, POST
+        the new event's data to http://test.seedcode.com/createEvent.
       </p>
       <h5>The user should be able to:</h5>
       <ul>

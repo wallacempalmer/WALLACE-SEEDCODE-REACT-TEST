@@ -1,5 +1,6 @@
 .app-container {
-  padding: 20px;
+  padding: 30px;
+  max-width: 900px;
 }
 
 .app-header {
@@ -8,6 +9,5 @@
 }
 
 .app-link {
-  color: hsl(192, 23%, 33%);
-  margin-left: 10px;
+  margin-right: 10px;
 }
