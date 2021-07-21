@@ -6,7 +6,7 @@ export const Test2 = () => {
         The routing system this app uses works, but there's a lot of duplication
         between the routes and the nav links, so adding new pages is cumbersome.
         Also, there's no way to tell what page we're on without looking at the
-        location bar in the browser. Restructure App.tsx to render its pages and
+        location bar in the browser. Restructure App.js to render its pages and
         nav links from a single array of routes.
       </p>
       <ul>
