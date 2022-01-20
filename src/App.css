@@ -10,4 +10,30 @@
 
 .app-link {
   margin-right: 10px;
+} 
+
+.active-link {
+  color: crimson;
+  margin: 0 15px;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.inactive-link {
+  text-decoration: none;
+  margin: 0 10px;
+  color: black;
+  font-size: larger;
+}
+
+.inactive-link:link {
+  color: black;
+}
+
+.helloworld-header {
+  margin: 10px 0 0 50px;
+}
+
+.helloworld-subheader {
+  margin: 250px 0 0 50px;
 }

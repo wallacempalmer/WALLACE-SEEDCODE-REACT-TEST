@@ -1,41 +1,70 @@
 import "./App.css";
 import React from "react";
-import { Home, Test1, Test2, Test3 } from "./routes";
+import { Home, Test1, Test2, Test3, HelloWorld } from "./routes";
+
+const routes = [
+  {
+    name: 'Home',
+    path: '/',
+    component: <Home />
+  },{
+    name: 'Test 1',
+    path: '/test1',
+    component: <Test1 />
+  },{
+    name: 'Test 2',
+    path: '/test2',
+    component: <Test2 />
+  },{
+    name: 'Test 3',
+    path: '/test3',
+    component: <Test3 />
+  },{
+    name: 'Hello World',
+    path: '/helloworld',
+    component: <HelloWorld />
+  }
+]
 
 const App = () => {
   return (
     <div className="app-container">
+      {/*  header */}
       <header className="app-header">
-        <a href="/" className="app-link">
-          Home
-        </a>
-        <a href="/test1" className="app-link">
-          Test 1
-        </a>
-        <a href="/test2" className="app-link">
-          Test 2
-        </a>
-        <a href="/test3" className="app-link">
-          Test 3
-        </a>
+        {/* Loop through routes array to create links in navbar */}
+        {routes.map(route => {
+          return (
+            <>
+              <NavLinks 
+                path={route.path} 
+                name={route.name} />
+            </>
+          )
+        })}
       </header>
-      <div>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/test1">
-          <Test1 />
-        </Route>
-        <Route path="/test2">
-          <Test2 />
-        </Route>
-        <Route path="/test3">
-          <Test3 />
-        </Route>
+      {/* body */}
+      <div> 
+        {/* loop through array to create routes */}
+        {routes.map(route => {
+            return (
+              <Route path={route.path}>
+                  {route.component}
+              </Route>
+            )
+        })}
       </div>
     </div>
   );
 };
+//nav links component
+const NavLinks = (props) => {
+  const isActive = window.location.pathname === props.path;
+  return (
+    <a href={props.path} className={ isActive ? 'active-link' : 'inactive-link'}>
+      {props.name}
+    </a>
+  )
+}
 
 const Route = (props) =>
   window.location.pathname === props.path ? (
