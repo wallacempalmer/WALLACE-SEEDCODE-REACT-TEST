@@ -30,7 +30,9 @@ const EventForm = (props) => {
         setSuccess(null)
     },[])
 
-    //api functions
+    /*
+     * http functions
+     */
     const getPeople = async () => {
         setIsLoading(true)
         console.log('Fetch Loading...')
@@ -47,6 +49,7 @@ const EventForm = (props) => {
                 setIsLoading(false) 
             })
     }
+
     const postEvent = async () => {
         let guests = []
         let didSelectGuest = false;
@@ -78,6 +81,7 @@ const EventForm = (props) => {
             })
         }
 
+        //post request
         await fetch('http://test.seedcode.com/createEvent', options)
             .then(response => {
                 console.log('response: ', response)
@@ -92,19 +96,34 @@ const EventForm = (props) => {
             }).catch(e => {
                 console.log('post error: ', e.message)
                 setError(e.message)
+                setSuccess(null)
                 setIsLoading(false) 
             });
     }
 
-    //form functions
+    /*
+     * form functions
+     */
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
         if (!eventName) {
             alert('Add Event Name')
             return;
         }
+        //remove any error messages
+        if (success) {
+            setSuccess(null)
+        }
+        if (error) {
+            setError(null)
+        }
+
+        //http post
         postEvent()
     }
+
     const handleChecboxChange = (event, data) => {
         const person = data.person;
         const isChecked = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -146,7 +165,6 @@ const EventForm = (props) => {
                     <div className='inviteLabel'>
                         <label> Invite Guests: </label> 
                     </div>
-
                     { people && (
                         people.map(person => {
                             return (
@@ -165,11 +183,11 @@ const EventForm = (props) => {
                 <input type='submit' value='Submit' />
             </form>
 
-            {/*  show api errors */}
+            {/*  show http errors */}
             {error && (
                 <p className='errorMsg'>Error: {error}</p>
             )}
-            {/*  show api success */}
+            {/*  show http success */}
             {success && (
                 <p className='successMsg'>Success: {success}</p>
             )}
