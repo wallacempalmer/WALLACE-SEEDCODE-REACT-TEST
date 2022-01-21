@@ -1,6 +1,10 @@
+import EventForm from "../components/EventForm";
+
 export const Test1 = () => {
   return (
     <div>
+      <EventForm />
+      <br /><br /><br />
       <h4>Make a form for creating events</h4>
       <p>
         You've been tasked with creating a simple form for creating events. The user needs to title the event and select who they want to invite.
@@ -42,3 +46,4 @@ export const Test1 = () => {
     </div>
   );
 };
+

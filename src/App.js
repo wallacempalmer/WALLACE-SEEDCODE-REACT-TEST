@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { Home, Test1, Test2, Test3, HelloWorld } from "./routes";
 
+//routes array 
 const routes = [
   {
     name: 'Home',
@@ -34,11 +35,9 @@ const App = () => {
         {/* Loop through routes array to create links in navbar */}
         {routes.map(route => {
           return (
-            <>
               <NavLinks 
                 path={route.path} 
                 name={route.name} />
-            </>
           )
         })}
       </header>
@@ -56,6 +55,7 @@ const App = () => {
     </div>
   );
 };
+
 //nav links component
 const NavLinks = (props) => {
   const isActive = window.location.pathname === props.path;
@@ -66,6 +66,7 @@ const NavLinks = (props) => {
   )
 }
 
+//route component
 const Route = (props) =>
   window.location.pathname === props.path ? (
     <React.Fragment>{props.children}</React.Fragment>

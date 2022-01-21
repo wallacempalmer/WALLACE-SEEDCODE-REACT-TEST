@@ -4,8 +4,11 @@
 }
 
 .app-header {
-  margin-bottom: 20px;
-  display: "flex";
+  /* background-color: lightgray; */
+  /* height: 70px; */
+  margin: 10px 0 50px 0;
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .app-link {
@@ -22,18 +25,42 @@
 .inactive-link {
   text-decoration: none;
   margin: 0 10px;
-  color: black;
+  color: #494949;
   font-size: larger;
 }
 
-.inactive-link:link {
-  color: black;
-}
 
 .helloworld-header {
-  margin: 10px 0 0 50px;
+  margin: 10px 0 0 0;
 }
 
 .helloworld-subheader {
-  margin: 250px 0 0 50px;
+  margin: 250px 0 0 0;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.inviteLabel {
+  margin-bottom: 10px;
+}
+
+.guestContainer {
+  padding-left: 20px;
+}
+.errorMsg{
+  color: red;
+}
+.successMsg{
+  color: green;
 }
