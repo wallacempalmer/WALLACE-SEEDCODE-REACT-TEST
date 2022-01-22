@@ -1,4 +1,7 @@
+import '../App.css';
+
 export const Test3 = () => {
+
   const comments = [
     {
       text: "Sure Brian, what's the issue?",
@@ -68,21 +71,37 @@ export const Test3 = () => {
 
 
 const CommentList = (props) => {
+
+  //convert timestamp to integer and sort descending order
+  let comments = props.comments.sort((a,b) => new Date(b.timestamp).getTime() -  new Date(a.timestamp).getTime())
+  
   return (
-    <div>
-      {props.comments.map((c) => (
-        <Comment key={c.id} text={c.text} author={c.author} />
+    <div className="commentList">
+      {comments.map((c) => (
+        <Comment key={c.id} text={c.text} author={c.author} bgColor={c.avatarColor}/>
       ))}
     </div>
   );
 };
 
+
 const Comment = (props) => {
+  //split name and grab initials of first and last
+  let names = props.author.split(' ');
+  let initials = names[0].charAt(0) + names[1].charAt(0)
+
   return (
-    <div>
-      <div>{props.author}</div>
-      <div>{props.text}</div>
-      <div>{props.timetamp}</div>
+    <div className="comment">
+       {/* avatar */}
+      <div className='avatar' style={{backgroundColor: props.bgColor}}>
+        <h3>{initials}</h3>
+      </div>
+      {/* comment info */}
+      <div>
+        <div className='author'>{props.author}</div>
+        <div>{props.text}</div>
+        {/* <div>{props.timestamp}</div> */}
+      </div>
     </div>
   );
 };

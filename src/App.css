@@ -17,7 +17,7 @@
 
 .active-link {
   color: crimson;
-  margin: 0 15px;
+  margin: 0 10px;
   font-weight: bolder;
   font-size: x-large;
 }
@@ -63,4 +63,34 @@
 }
 .successMsg{
   color: green;
+}
+
+.commentList {
+  border: 1px solid black;
+  padding: 20px;
+  width: 450px;
+}
+.comment:first-child {
+  margin-top: 0;
+}
+.comment {
+  margin-top: 15px;
+  display: flex;
+  border: 2px solid lightgray;
+  border-radius: 4px;
+  padding:10px;
+}
+
+.avatar {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author {
+  font-weight: 600;
 }

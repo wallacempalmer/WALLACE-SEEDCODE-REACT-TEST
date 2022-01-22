@@ -108,8 +108,8 @@ const EventForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (!eventName) {
-            alert('Add Event Name')
+        if (!eventName || eventName.length < 3) {
+            alert('Add Event Name - must be longer than 3 characters')
             return;
         }
         //remove any error messages
@@ -128,6 +128,10 @@ const EventForm = (props) => {
         const person = data.person;
         const isChecked = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         
+        if (success) {
+            setSuccess(null)
+        }
+
         //update people array with new checkbox value
         let newArr = [...people];
         newArr[person.id] = {
@@ -166,18 +170,17 @@ const EventForm = (props) => {
                         <label> Invite Guests: </label> 
                     </div>
                     { people && (
-                        people.map(person => {
-                            return (
-                                <div className='guestContainer' key={person.id}>
-                                    {person.name}
-                                    <input 
-                                        type='checkbox' 
-                                        checked={(person.isChecked) ? true : false}
-                                        onChange={(event) => handleChecboxChange(event, { person })}
-                                        />
-                                </div>
+                        people.map(person => (
+                            <div className='guestContainer' key={person.id}>
+                                {person.name}
+                                <input 
+                                    type='checkbox' 
+                                    checked={(person.isChecked) ? true : false}
+                                    onChange={(event) => handleChecboxChange(event, { person })}
+                                    />
+                            </div>
                             )
-                        }))}
+                        ))}
                 </div>
                 <br />
                 <input type='submit' value='Submit' />

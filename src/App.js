@@ -33,24 +33,23 @@ const App = () => {
       {/*  header */}
       <header className="app-header">
         {/* Loop through routes array to create links in navbar */}
-        {routes.map(route => {
-          return (
-              <NavLinks 
-                path={route.path} 
-                name={route.name} />
-          )
-        })}
+        {routes.map((route, index) => (
+          <React.Fragment key={`navlink-${index}`}>
+            <NavLinks 
+              path={route.path} 
+              name={route.name} 
+              key={`navlink-${index}`}/>
+          </React.Fragment >
+        ))}
       </header>
       {/* body */}
       <div> 
-        {/* loop through array to create routes */}
-        {routes.map(route => {
-            return (
-              <Route path={route.path}>
-                  {route.component}
-              </Route>
-            )
-        })}
+        {/* loop through routes array to display routes */}
+        {routes.map((route, index) =>  (
+          <Route path={route.path} key={`display-${index}`}>
+              {route.component}
+          </Route>
+        ))}
       </div>
     </div>
   );
@@ -60,9 +59,9 @@ const App = () => {
 const NavLinks = (props) => {
   const isActive = window.location.pathname === props.path;
   return (
-    <a href={props.path} className={ isActive ? 'active-link' : 'inactive-link'}>
-      {props.name}
-    </a>
+      <a href={props.path} className={ isActive ? 'active-link' : 'inactive-link'}>
+          {props.name}
+      </a>
   )
 }
 
