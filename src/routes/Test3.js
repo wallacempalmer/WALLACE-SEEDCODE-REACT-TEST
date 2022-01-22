@@ -93,7 +93,7 @@ const CommentList = (props) => {
     <div className="commentList">
       {comments.map((c) =>  { 
         const date = new Date(c.timestamp);
-        console.log(date)
+        
           return (
             <Comment 
               key={c.id} 
