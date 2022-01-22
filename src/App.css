@@ -20,6 +20,7 @@
   margin: 0 10px;
   font-weight: bolder;
   font-size: x-large;
+  text-decoration: none;
 }
 
 .inactive-link {
@@ -93,4 +94,14 @@
 
 .author {
   font-weight: 600;
+}
+
+.timestamp {
+  margin-top: 8px;
+  font-size: smaller;
+  float: right;
+}
+
+.commentData {
+  width: 100%;
 }

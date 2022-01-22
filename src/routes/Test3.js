@@ -72,14 +72,38 @@ export const Test3 = () => {
 
 const CommentList = (props) => {
 
-  //convert timestamp to integer and sort descending order
+  //convert timestamp to integer and sort in descending order
   let comments = props.comments.sort((a,b) => new Date(b.timestamp).getTime() -  new Date(a.timestamp).getTime())
-  
+
+  //format date
+  const formatDate = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12; 
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    let strTime = hours + ':' + minutes + ' ' + ampm;
+
+    return (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+  }
+
   return (
     <div className="commentList">
-      {comments.map((c) => (
-        <Comment key={c.id} text={c.text} author={c.author} bgColor={c.avatarColor}/>
-      ))}
+      {comments.map((c) =>  { 
+        const date = new Date(c.timestamp);
+        console.log(date)
+          return (
+            <Comment 
+              key={c.id} 
+              text={c.text} 
+              author={c.author} 
+              bgColor={c.avatarColor}
+              timestamp={formatDate(date)} />
+          )
+        }
+      )}
     </div>
   );
 };
@@ -93,14 +117,14 @@ const Comment = (props) => {
   return (
     <div className="comment">
        {/* avatar */}
-      <div className='avatar' style={{backgroundColor: props.bgColor}}>
+      <div className="avatar" style={{backgroundColor: props.bgColor}}>
         <h3>{initials}</h3>
       </div>
       {/* comment info */}
-      <div>
-        <div className='author'>{props.author}</div>
+      <div className="commentData">
+        <div className="author">{props.author}</div>
         <div>{props.text}</div>
-        {/* <div>{props.timestamp}</div> */}
+        <div className="timestamp">{props.timestamp}</div>
       </div>
     </div>
   );
